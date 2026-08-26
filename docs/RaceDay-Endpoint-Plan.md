@@ -48,10 +48,11 @@
 
 | HTTP Method | Route | Description | Role Required | Request Body | Expected Response |
 |---|---|---|---|---|---|
-| POST | /api/enrolments/{enrolmentId}/result | Records a participant's result for an enrolment. | Organiser | `{ finishTime, finishPosition }` | 201 Created - result recorded; 404 Not Found - enrolment does not exist |
-| GET | /api/results/me | Retrieves the logged-in participant's personal results. | Participant | None | 200 OK - personal results; 401 Unauthorized - authentication required |
-| GET | /api/events/{eventId}/results | Retrieves results for an event. | Organiser | None | 200 OK - event results; 404 Not Found - event does not exist |
-| PUT | /api/results/{id} | Updates an existing participant result. | Organiser | `{ finishTime, finishPosition }` | 200 OK - result updated; 404 Not Found - result does not exist |
+| POST | /api/enrolments/{enrolmentId}/result | Records a participant's result for a specific event enrolment. | Organiser | `{ finishTime, finishPosition }` | 201 Created - result recorded successfully; 400 Bad Request - invalid result data; 404 Not Found - enrolment does not exist |
+| GET | /api/results/me | Retrieves the logged-in participant's personal race results. | Participant | None | 200 OK - list of personal results; 401 Unauthorized - authentication required |
+| GET | /api/events/{eventId}/results | Retrieves the results for all participants in a specific event. | Organiser | None | 200 OK - event results; 404 Not Found - event does not exist |
+| GET | /api/results/{id} | Retrieves details of a specific participant result. | Participant or Organiser | None | 200 OK - result details; 404 Not Found - result does not exist; 403 Forbidden - insufficient permissions |
+| PUT | /api/results/{id} | Updates an existing participant result. | Organiser | `{ finishTime, finishPosition }` | 200 OK - result updated successfully; 400 Bad Request - invalid result data; 404 Not Found - result does not exist |
 
 ## Routes and Weather
 
