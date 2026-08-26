@@ -28,10 +28,11 @@
 
 | HTTP Method | Route | Description | Role Required | Request Body | Expected Response |
 |---|---|---|---|---|---|
-| GET | /api/events/{eventId}/categories | Retrieves all categories belonging to an event. | None (public) | None | 200 OK - list of categories; 404 Not Found - event does not exist |
-| POST | /api/events/{eventId}/categories | Creates a category for an event. | Organiser | `{ categoryName, ageMinimum, ageMaximum, distance }` | 201 Created - category created; 400 Bad Request - invalid data |
-| PUT | /api/categories/{id} | Updates an event category. | Organiser | `{ categoryName, ageMinimum, ageMaximum, distance }` | 200 OK - updated category; 404 Not Found - category does not exist |
-| DELETE | /api/categories/{id} | Deletes an event category. | Organiser | None | 204 No Content - category deleted; 404 Not Found - category does not exist |
+| GET | /api/events/{eventId}/categories | Retrieves all categories available for a specific event. | None (public) | None | 200 OK - list of categories; 404 Not Found - event does not exist |
+| POST | /api/events/{eventId}/categories | Creates a new category for a specific event. | Organiser | `{ categoryName, ageMinimum, ageMaximum, distance }` | 201 Created - category created successfully; 400 Bad Request - invalid data; 404 Not Found - event does not exist |
+| GET | /api/categories/{id} | Retrieves the details of a specific event category. | None (public) | None | 200 OK - category details; 404 Not Found - category does not exist |
+| PUT | /api/categories/{id} | Updates an existing event category. | Organiser | `{ categoryName, ageMinimum, ageMaximum, distance }` | 200 OK - category updated successfully; 400 Bad Request - invalid data; 404 Not Found - category does not exist |
+| DELETE | /api/categories/{id} | Deletes an existing event category. | Organiser | None | 204 No Content - category deleted successfully; 404 Not Found - category does not exist; 409 Conflict - category is already being used by an enrolment |
 
 ## Event Enrolments
 
