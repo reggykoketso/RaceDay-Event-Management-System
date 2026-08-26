@@ -58,5 +58,5 @@
 
 | HTTP Method | Route | Description | Role Required | Request Body | Expected Response |
 |---|---|---|---|---|---|
-| GET | /api/events/{eventId}/route | Retrieves route information for an event. | None (public) | None | 200 OK - route information; 404 Not Found - route does not exist |
-| GET | /api/events/{eventId}/weather | Retrieves current or forecast weather information for an event. | None (public) | None | 200 OK - weather information; 404 Not Found - event does not exist |
+| GET | /api/events/{eventId}/route | Retrieves route information for a specific event. | None (public) | None | 200 OK - route information; 404 Not Found - route does not exist |
+| GET | /api/events/{eventId}/weather | Retrieves current or forecast weather information for a specific event. | None (public) | None | 200 OK - weather information; 404 Not Found - event does not exist |
