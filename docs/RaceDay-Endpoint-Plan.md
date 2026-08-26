@@ -38,10 +38,11 @@
 
 | HTTP Method | Route | Description | Role Required | Request Body | Expected Response |
 |---|---|---|---|---|---|
-| POST | /api/events/{eventId}/enrolments | Enrols the logged-in participant in an event by selecting a category. | Participant | `{ categoryId }` | 201 Created - enrolment created; 404 Not Found - event or category does not exist; 409 Conflict - participant already enrolled |
-| GET | /api/enrolments/me | Retrieves the logged-in participant's own event enrolments. | Participant | None | 200 OK - participant enrolments; 401 Unauthorized - authentication required |
-| GET | /api/events/{eventId}/enrolments | Retrieves all participants enrolled in a specific event. | Organiser | None | 200 OK - list of enrolments; 404 Not Found - event does not exist |
-| DELETE | /api/enrolments/{id} | Removes an enrolment from an event. | Participant | None | 204 No Content - enrolment removed; 404 Not Found - enrolment does not exist |
+| POST | /api/events/{eventId}/enrolments | Enrols the logged-in participant in an event by selecting an available category. | Participant | `{ categoryId }` | 201 Created - enrolment created successfully; 400 Bad Request - invalid category; 404 Not Found - event or category does not exist; 409 Conflict - participant is already enrolled |
+| GET | /api/enrolments/me | Retrieves all event enrolments belonging to the logged-in participant. | Participant | None | 200 OK - list of the participant's enrolments; 401 Unauthorized - authentication required |
+| GET | /api/events/{eventId}/enrolments | Retrieves all participants enrolled in a specific event. | Organiser | None | 200 OK - list of event enrolments; 404 Not Found - event does not exist |
+| GET | /api/enrolments/{id} | Retrieves details of a specific enrolment. | Participant or Organiser | None | 200 OK - enrolment details; 404 Not Found - enrolment does not exist; 403 Forbidden - insufficient permissions |
+| DELETE | /api/enrolments/{id} | Removes a participant's enrolment from an event. | Participant | None | 204 No Content - enrolment removed; 404 Not Found - enrolment does not exist; 403 Forbidden - enrolment does not belong to the logged-in participant |
 
 ## Results
 
