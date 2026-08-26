@@ -211,3 +211,24 @@ SELECT * FROM dbo.Routes;
 SELECT * FROM dbo.Enrolments;
 SELECT * FROM dbo.Results;
 GO
+/*
+    Relationship Verification
+    Confirms that enrolments correctly connect participants,
+    events and categories.
+*/
+
+SELECT
+    e.EnrolmentID,
+    u.FirstName + ' ' + u.LastName AS ParticipantName,
+    ev.Name AS EventName,
+    c.CategoryName,
+    e.EnrolmentDate
+FROM dbo.Enrolments e
+INNER JOIN dbo.Users u
+    ON e.ParticipantID = u.UserID
+INNER JOIN dbo.Events ev
+    ON e.EventID = ev.EventID
+INNER JOIN dbo.Categories c
+    ON e.CategoryID = c.CategoryID
+ORDER BY e.EnrolmentID;
+GO
