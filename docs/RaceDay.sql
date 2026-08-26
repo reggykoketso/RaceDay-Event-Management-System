@@ -1,7 +1,15 @@
 /*
-RaceDay - Part 1 Section C
-SQL Server database schema and seed data
+    RaceDay Event Management System
+    Part 1 - SQL Database Script
+
+    Purpose:
+    Creates and populates the RaceDay database for the South African
+    road running, walking and cycling community.
+
+    The script creates the database schema, tables, relationships,
+    constraints and fictional sample data required for testing.
 */
+
 
 IF DB_ID('RaceDayDB') IS NULL
 BEGIN
