@@ -1,38 +1,65 @@
-# RaceDay – Part 1
+# RaceDay – Event Management System
 
-## System Description
-RaceDay is a web-based event management system designed for the South African road running, walking and cycling community. The SQL seed records are fictional, realistic test data created for database demonstration and testing. It allows organisers to manage events, categories, routes, enrolments and participant results, while participants can browse events, enter events, view their enrolments and track personal performance.
+## Project Overview
 
-## Roles
+RaceDay is a full-stack web-based event management system designed for the South African road running, walking and cycling community. The system aims to make it easier for event organisers to manage events, categories, participant enrolments and race results, while allowing participants to browse upcoming events, enter races and track their personal performance.
+
+The system is being developed progressively across three parts. Part 1 focuses on system planning and database design before application code is written. This includes the Entity Relationship Diagram (ERD), API endpoint plan and SQL Server database script.
+
+## System Roles
 
 ### Organiser
-Organisers can create, edit and delete events, manage event categories and route information, view event enrolments and capture participant results.
+
+The Organiser is responsible for managing events on the RaceDay platform. An Organiser can:
+
+* Create, edit and delete events.
+* Create and manage event categories.
+* View participant enrolments.
+* Capture and manage participant results.
+* Manage information required for race-day events.
 
 ### Participant
-Participants can create accounts, browse upcoming events, enter events by selecting a category, view their own enrolments and track their personal results.
 
-## Part 1 Documents
-- `docs/RaceDay-ERD.png` – Entity Relationship Diagram.
-- `docs/RaceDay-Endpoint-Plan.md` – REST API endpoint plan.
-- `docs/RaceDay.sql` – SQL Server database schema and seed data.
+The Participant is a user who takes part in RaceDay events. A Participant can:
+
+* Create an account and log in.
+* Browse upcoming events.
+* Select an event category and enrol in an event.
+* View their own event enrolments.
+* View and track their personal race results.
+
+## Part 1 – System Planning and Database
+
+Part 1 establishes the foundation of the RaceDay system before application development begins. The planning documents include:
+
+* Entity Relationship Diagram (ERD)
+* API Endpoint Plan
+* SQL Server Database Script
+
+The SQL database contains the entities required to support organisers, participants, events, categories, routes, enrolments and results. The database script also contains fictional sample data used to test and demonstrate the database.
+
+## Repository Structure
+
+```text
+RaceDay/
+├── docs/
+│   ├── RaceDay-ERD.png
+│   ├── RaceDay-Endpoint-Plan.md
+│   ├── RaceDay.sql
+│   └── Seed-Data-Note.md
+│
+├── .github/
+│   └── workflows/
+│       └── validate-docs.yml
+│
+└── README.md
+```
+
+## Part 1 Video Presentation
+
+The Part 1 video presentation will be added here once it has been recorded and uploaded to YouTube.
 
 ## CI/CD
-GitHub Actions validates the required Part 1 repository structure. Add a screenshot of a successful green workflow run here before submission.
 
-`![Successful GitHub Actions build](docs/ci-success.png)`
+The GitHub Actions validation workflow will be demonstrated here once the workflow has been successfully executed.
 
-## Video Presentation
-Add the unlisted YouTube Part 1 presentation link here before submission.
-
-**YouTube:** TODO – paste your unlisted video URL.
-
-## Part 1 Submission Checklist
-- [ ] ERD committed to `/docs`
-- [ ] Endpoint plan committed to `/docs`
-- [ ] SQL script committed to `/docs`
-- [ ] SQL script tested successfully in SSMS
-- [ ] At least 20 meaningful commits completed
-- [ ] GitHub Actions workflow passes
-- [ ] Green-build screenshot added to README
-- [ ] Unlisted Part 1 YouTube video uploaded
-- [ ] YouTube link added to README
