@@ -194,3 +194,20 @@ SELECT * FROM dbo.Routes;
 SELECT * FROM dbo.Enrolments;
 SELECT * FROM dbo.Results;
 GO
+
+/*
+    Database Verification Queries
+    These queries can be used in SSMS after the database has been created
+    to confirm that the tables contain the expected sample data.
+*/
+
+USE RaceDayDB;
+GO
+
+SELECT * FROM dbo.Users;
+SELECT * FROM dbo.Events;
+SELECT * FROM dbo.Categories;
+SELECT * FROM dbo.Routes;
+SELECT * FROM dbo.Enrolments;
+SELECT * FROM dbo.Results;
+GO
