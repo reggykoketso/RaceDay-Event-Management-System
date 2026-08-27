@@ -147,6 +147,16 @@ CREATE TABLE dbo.Results
 );
 GO
 
+/*
+    Sample Seed Data
+
+    The following INSERT statements populate the RaceDay database
+    with realistic fictional data for testing. The sample data
+    includes organisers, participants, events, categories,
+    enrolments and results.
+*/
+
+-- Sample organisers and participants
 INSERT INTO dbo.Users (FirstName, LastName, Email, PasswordHash, Role, Phone)
 VALUES
 ('Mandla','Mahlangu','mandla.mahlangu@raceday.example','HASHED_PASSWORD_101','Organiser','0791112233'),
@@ -155,6 +165,7 @@ VALUES
 ('Zinhle','Dlamini','zinhle.dlamini@example','HASHED_PASSWORD_104','Participant','0754445566');
 GO
 
+-- Sample events
 INSERT INTO dbo.Events
 (OrganiserID, Name, Description, EventDate, Location, Distance, EventType)
 VALUES
@@ -163,6 +174,7 @@ VALUES
 (2,'Waterberg Cycle Challenge','A fictional road-cycling challenge for recreational and competitive cyclists.','2026-11-07','Bela-Bela, Limpopo',21.00,'Cycle');
 GO
 
+-- Sample event categories
 INSERT INTO dbo.Categories
 (EventID, CategoryName, AgeMinimum, AgeMaximum, Distance)
 VALUES
@@ -177,6 +189,7 @@ VALUES
 (3,'Veteran Cyclist',40,99,21.00);
 GO
 
+-- Sample event routes
 INSERT INTO dbo.Routes
 (EventID, RouteName, StartLocation, FinishLocation, Distance, RouteDescription)
 VALUES
@@ -185,6 +198,7 @@ VALUES
 (3,'Waterberg 21K Cycle Route','Bela-Bela Sports Grounds','Bela-Bela Sports Grounds',21.00,'A fictional 21 km road-cycling loop beginning and ending at the sports grounds.');
 GO
 
+-- Sample participant enrolments
 INSERT INTO dbo.Enrolments
 (ParticipantID, EventID, CategoryID, EnrolmentDate)
 VALUES
@@ -196,6 +210,7 @@ VALUES
 (4,3,8,'2026-08-23');
 GO
 
+-- Sample participant results
 INSERT INTO dbo.Results
 (EnrolmentID, FinishTime, FinishPosition)
 VALUES
