@@ -72,3 +72,16 @@ The database design includes users, events, categories, routes, enrolments and r
 The database script is located in the `/docs` folder and contains the table definitions, constraints and fictional sample data required for testing.
 
 The SQL script was tested using SQL Server Management Studio (SSMS).
+
+## Part 1 Requirements
+
+The planning stage of the RaceDay project establishes the foundation for the later development of the system.
+
+The main deliverables for Part 1 are:
+
+- Entity Relationship Diagram (ERD) showing the database entities, attributes, keys and relationships.
+- API Endpoint Plan covering authentication, user profiles, events, categories, enrolments and results.
+- SQL Server database script containing the complete database schema, constraints and sample data.
+- GitHub repository containing the required planning documents.
+- GitHub Actions workflow to validate the required repository structure.
+- Video presentation explaining the planning decisions and demonstrating the SQL database script in SSMS.
