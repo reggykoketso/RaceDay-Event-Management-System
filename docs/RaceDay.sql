@@ -9,7 +9,12 @@
     The script creates the database schema, tables, relationships,
     constraints and fictional sample data required for testing.
 */
+/*
+    RaceDay Database Setup
 
+    Creates the RaceDayDB database and selects it as the
+    active database for the tables, relationships and sample data.
+*/
 
 IF DB_ID('RaceDayDB') IS NULL
 BEGIN
