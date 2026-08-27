@@ -111,3 +111,18 @@ The RaceDay SQL database script was tested using SQL Server Management Studio (S
 The script was executed to create the database tables, relationships, constraints and sample records. Verification queries were also used to confirm that the sample organisers, participants, events, categories, enrolments and results were stored correctly.
 
 The SQL script and supporting testing evidence are included in the `/docs` folder.
+
+## Part 1 Progress
+
+The main planning and database activities for Part 1 have been completed.
+
+- [x] ERD created
+- [x] API endpoint plan created
+- [x] SQL Server database script created
+- [x] Database sample data added
+- [x] SQL script tested in SSMS
+- [x] Project documentation added
+- [ ] GitHub Actions validation
+- [ ] CI/CD success screenshot
+- [ ] Part 1 video presentation
+- [ ] YouTube video link added to README
