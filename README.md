@@ -126,3 +126,11 @@ The main planning and database activities for Part 1 have been completed.
 - [ ] CI/CD success screenshot
 - [ ] Part 1 video presentation
 - [ ] YouTube video link added to README
+
+## GitHub Repository
+
+The repository is organised so that the planning documents and supporting configuration files are kept in clearly defined locations.
+
+The `/docs` folder contains the Part 1 planning and database documentation, while the `.github/workflows` folder contains the GitHub Actions workflow used to validate the required documentation structure.
+
+This structure will be maintained as the project progresses through Parts 2 and 3.
