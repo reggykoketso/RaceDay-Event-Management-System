@@ -85,3 +85,21 @@ The main deliverables for Part 1 are:
 - GitHub repository containing the required planning documents.
 - GitHub Actions workflow to validate the required repository structure.
 - Video presentation explaining the planning decisions and demonstrating the SQL database script in SSMS.
+
+## Documentation
+
+All Part 1 planning and database documents are stored in the `/docs` folder.
+
+### ERD
+
+The ERD provides a visual representation of the RaceDay database. It identifies the entities, attributes, primary keys, foreign keys and relationships required by the system.
+
+### API Endpoint Plan
+
+The API Endpoint Plan defines the RESTful endpoints that will be implemented in later parts of the project. It specifies the HTTP method, route, purpose, required role, request body and expected response for each endpoint.
+
+### SQL Database Script
+
+The SQL script creates and populates the RaceDay SQL Server database. It includes the database tables, primary keys, foreign keys, constraints and sample data required for testing.
+
+These documents form the foundation for the API and MVC application that will be developed in Parts 2 and 3.
