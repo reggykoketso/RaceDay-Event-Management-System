@@ -103,3 +103,11 @@ The API Endpoint Plan defines the RESTful endpoints that will be implemented in 
 The SQL script creates and populates the RaceDay SQL Server database. It includes the database tables, primary keys, foreign keys, constraints and sample data required for testing.
 
 These documents form the foundation for the API and MVC application that will be developed in Parts 2 and 3.
+
+## Database Testing
+
+The RaceDay SQL database script was tested using SQL Server Management Studio (SSMS).
+
+The script was executed to create the database tables, relationships, constraints and sample records. Verification queries were also used to confirm that the sample organisers, participants, events, categories, enrolments and results were stored correctly.
+
+The SQL script and supporting testing evidence are included in the `/docs` folder.
