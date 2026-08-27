@@ -55,9 +55,11 @@ RaceDay/
 └── README.md
 ```
 
-## Part 1 Video Presentation
+**## Part 1 Video Presentation**
 
-The Part 1 video presentation will be added here once it has been recorded and uploaded to YouTube.
+The Part 1 video presentation demonstrates the RaceDay system planning, ERD, API Endpoint Plan, SQL Server database and GitHub Actions validation.
+
+[Watch the Part 1 Video on YouTube](https://youtu.be/KbGUxsuErm0)
 
 ## CI/CD
 
@@ -124,8 +126,8 @@ The main planning and database activities for Part 1 have been completed.
 - [x] Project documentation added
 - [x] GitHub Actions validation
 - [x] CI/CD success screenshot
-- [ ] Part 1 video presentation
-- [ ] YouTube video link added to README
+- [x] Part 1 video presentation
+- [x] YouTube video link added to README
 
 
 ## GitHub Repository
