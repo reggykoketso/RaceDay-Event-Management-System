@@ -33,6 +33,13 @@ IF OBJECT_ID('dbo.Events', 'U') IS NOT NULL DROP TABLE dbo.Events;
 IF OBJECT_ID('dbo.Users', 'U') IS NOT NULL DROP TABLE dbo.Users;
 GO
 
+/*
+    Core Database Tables
+
+    The following tables store the users, events, categories,
+    routes, enrolments and results required by the RaceDay system.
+*/ 
+
 CREATE TABLE dbo.Users
 (
     UserID INT IDENTITY(1,1) NOT NULL,
@@ -49,6 +56,7 @@ CREATE TABLE dbo.Users
 );
 GO
 
+-- Events table
 CREATE TABLE dbo.Events
 (
     EventID INT IDENTITY(1,1) NOT NULL,
@@ -67,6 +75,7 @@ CREATE TABLE dbo.Events
 );
 GO
 
+-- Categories table
 CREATE TABLE dbo.Categories
 (
     CategoryID INT IDENTITY(1,1) NOT NULL,
@@ -87,6 +96,7 @@ CREATE TABLE dbo.Categories
 );
 GO
 
+-- Routes table
 CREATE TABLE dbo.Routes
 (
     RouteID INT IDENTITY(1,1) NOT NULL,
@@ -104,6 +114,7 @@ CREATE TABLE dbo.Routes
 );
 GO
 
+--Enrolments table
 CREATE TABLE dbo.Enrolments
 (
     EnrolmentID INT IDENTITY(1,1) NOT NULL,
@@ -121,6 +132,7 @@ CREATE TABLE dbo.Enrolments
 );
 GO
 
+--Results table
 CREATE TABLE dbo.Results
 (
     ResultID INT IDENTITY(1,1) NOT NULL,
