@@ -122,10 +122,11 @@ The main planning and database activities for Part 1 have been completed.
 - [x] Database sample data added
 - [x] SQL script tested in SSMS
 - [x] Project documentation added
-- [ ] GitHub Actions validation
-- [ ] CI/CD success screenshot
+- [x] GitHub Actions validation
+- [x] CI/CD success screenshot
 - [ ] Part 1 video presentation
 - [ ] YouTube video link added to README
+
 
 ## GitHub Repository
 
