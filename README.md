@@ -63,3 +63,12 @@ The Part 1 video presentation will be added here once it has been recorded and u
 
 The GitHub Actions validation workflow will be demonstrated here once the workflow has been successfully executed.
 
+## Database
+
+The RaceDay system uses a relational SQL Server database to store and manage information required by the platform.
+
+The database design includes users, events, categories, routes, enrolments and results. Primary keys are used to uniquely identify records, while foreign keys establish relationships between related entities.
+
+The database script is located in the `/docs` folder and contains the table definitions, constraints and fictional sample data required for testing.
+
+The SQL script was tested using SQL Server Management Studio (SSMS).
