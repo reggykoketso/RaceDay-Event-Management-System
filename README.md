@@ -63,7 +63,11 @@ The Part 1 video presentation demonstrates the RaceDay system planning, ERD, API
 
 ## CI/CD
 
-The GitHub Actions validation workflow will be demonstrated here once the workflow has been successfully executed.
+The GitHub Actions validation workflow was successfully executed to verify the required RaceDay documentation structure.
+
+The successful workflow run is shown in the CI/CD evidence screenshot below.
+
+![CI/CD Success](evidence/CI-CD-Success.png)
 
 ## Database
 
