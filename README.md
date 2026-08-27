@@ -134,3 +134,13 @@ The repository is organised so that the planning documents and supporting config
 The `/docs` folder contains the Part 1 planning and database documentation, while the `.github/workflows` folder contains the GitHub Actions workflow used to validate the required documentation structure.
 
 This structure will be maintained as the project progresses through Parts 2 and 3.
+
+## Future Development
+
+Part 1 provides the foundation for the development of the RaceDay platform.
+
+In Part 2, the planned RESTful API will be implemented and connected to the SQL Server database. Authentication and role-based access control will also be implemented and tested.
+
+In Part 3, an MVC web application will consume the API and provide the user interface for Organisers and Participants. Additional functionality such as Azure Blob Storage and Docker containerisation will also be integrated.
+
+The database and API planning completed in Part 1 will therefore be used as the foundation for the remaining stages of the project.
