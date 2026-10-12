@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RaceDayAPI.Data;
+using RaceDayAPI.Models;
 
 namespace RaceDayAPI.Controllers
 {
@@ -6,16 +9,28 @@ namespace RaceDayAPI.Controllers
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetEvents()
+        private readonly RaceDayContext _context;
+
+        public EventController(RaceDayContext context)
         {
-            var events = new[]
-            {
-                new { Id = 1, Name = "Polokwane Marathon", Location = "Polokwane" },
-                new { Id = 2, Name = "RaceDay Fun Run", Location = "Limpopo" }
-            };
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEvents()
+        {
+            var events = await _context.Events.ToListAsync();
 
             return Ok(events);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateEvent(Event newEvent)
+        {
+            _context.Events.Add(newEvent);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetEvents), new { id = newEvent.Id }, newEvent);
         }
     }
 }
