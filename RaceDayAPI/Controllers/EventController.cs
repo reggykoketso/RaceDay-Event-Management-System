@@ -30,7 +30,7 @@ namespace RaceDayAPI.Controllers
             _context.Events.Add(newEvent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetEvents), new { id = newEvent.Id }, newEvent);
+            return CreatedAtAction(nameof(GetEvents), new { id = newEvent.EventID }, newEvent);
         }
 
         [HttpPut("{id}")]
@@ -43,8 +43,13 @@ namespace RaceDayAPI.Controllers
                 return NotFound();
             }
 
+            existingEvent.OrganiserId = updatedEvent.OrganiserId;
             existingEvent.Name = updatedEvent.Name;
+            existingEvent.Description = updatedEvent.Description;
+            existingEvent.EventDate = updatedEvent.EventDate;
             existingEvent.Location = updatedEvent.Location;
+            existingEvent.Distance = updatedEvent.Distance;
+            existingEvent.EventType = updatedEvent.EventType;
 
             await _context.SaveChangesAsync();
 
