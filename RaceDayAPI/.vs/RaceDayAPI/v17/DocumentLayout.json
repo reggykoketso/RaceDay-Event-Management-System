@@ -74,8 +74,7 @@
               "RelativeToolTip": "Models\\Result.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T14:08:50.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T14:08:50.709Z"
             },
             {
               "$type": "Document",
@@ -87,8 +86,7 @@
               "RelativeToolTip": "Models\\Enrolment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T14:07:19.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T14:07:19.882Z"
             },
             {
               "$type": "Document",
@@ -100,8 +98,7 @@
               "RelativeToolTip": "Models\\Route.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T13:54:50.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T13:54:50.557Z"
             },
             {
               "$type": "Document",
@@ -113,8 +110,7 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T13:50:34.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T13:50:34.177Z"
             },
             {
               "$type": "Document",
@@ -126,8 +122,7 @@
               "RelativeToolTip": "Migrations\\RaceDayContextModelSnapshot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T13:25:53.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T13:25:53.155Z"
             },
             {
               "$type": "Document",
@@ -139,8 +134,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T12:36:12.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T12:36:12.857Z"
             },
             {
               "$type": "Document",
@@ -152,8 +146,7 @@
               "RelativeToolTip": "Migrations\\20261012131234_IntialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T13:12:34.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T13:12:34.806Z"
             },
             {
               "$type": "Document",
@@ -163,7 +156,7 @@
               "RelativeDocumentMoniker": "Data\\RaceDayContext.cs",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\RaceDay-Event-Management-System\\RaceDayAPI\\Data\\RaceDayContext.cs",
               "RelativeToolTip": "Data\\RaceDayContext.cs",
-              "ViewState": "AgIAAAUAAACgZWZmZiYgwA4AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAswIQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T10:14:47.636Z",
               "EditorCaption": ""
@@ -190,8 +183,7 @@
               "RelativeToolTip": "Models\\Event.cs",
               "ViewState": "AgIAAA4AAACw/////58xwBQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T09:54:14.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T09:54:14.589Z"
             },
             {
               "$type": "Document",
@@ -215,8 +207,7 @@
               "RelativeToolTip": "Controllers\\EventController.cs",
               "ViewState": "AgIAACgAAABgZ2ZmZmYqwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T09:00:07.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T09:00:07.096Z"
             },
             {
               "$type": "Document",
