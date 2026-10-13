@@ -32,5 +32,39 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetEvents), new { id = newEvent.Id }, newEvent);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateEvent(int id, Event updatedEvent)
+        {
+            var existingEvent = await _context.Events.FindAsync(id);
+
+            if (existingEvent == null)
+            {
+                return NotFound();
+            }
+
+            existingEvent.Name = updatedEvent.Name;
+            existingEvent.Location = updatedEvent.Location;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingEvent);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEvent(int id)
+        {
+            var existingEvent = await _context.Events.FindAsync(id);
+
+            if (existingEvent == null)
+            {
+                return NotFound();
+            }
+
+            _context.Events.Remove(existingEvent);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
