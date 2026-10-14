@@ -8,7 +8,7 @@ namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Organiser")]
     public class RouteController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -24,7 +24,7 @@ namespace RaceDayAPI.Controllers
             var routes = await _context.Routes.ToListAsync();
             return Ok(routes);
         }
-
+        [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateRoute(RaceDayAPI.Models.Route newRoute)
         {
@@ -33,6 +33,7 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetRoutes), new { id = newRoute.RouteID }, newRoute);
         }
+        [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRoute(
     int id,
@@ -54,6 +55,7 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingRoute);
         }
+        [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoute(int id)
         {

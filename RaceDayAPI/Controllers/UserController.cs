@@ -8,7 +8,7 @@ namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Organiser")]
     public class UserController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -25,6 +25,7 @@ namespace RaceDayAPI.Controllers
             return Ok(users);
         }
 
+        [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateUser(User newUser)
         {
@@ -33,6 +34,11 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetUsers), new { id = newUser.UserID }, newUser);
         }
+
+
+
+
+        [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, User updatedUser)
         {
@@ -52,6 +58,8 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingUser);
         }
+
+        [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

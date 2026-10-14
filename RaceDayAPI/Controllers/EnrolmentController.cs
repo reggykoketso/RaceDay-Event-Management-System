@@ -8,7 +8,8 @@ namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Organiser")]
+
     public class EnrolmentController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -25,6 +26,7 @@ namespace RaceDayAPI.Controllers
             return Ok(enrolments);
         }
 
+        [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateEnrolment(Enrolment newEnrolment)
         {
@@ -36,6 +38,8 @@ namespace RaceDayAPI.Controllers
                 new { id = newEnrolment.EnrolmentID },
                 newEnrolment);
         }
+
+        [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEnrolment(
     int id, Enrolment updatedEnrolment)
@@ -54,6 +58,8 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingEnrolment);
         }
+
+        [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEnrolment(int id)
         {

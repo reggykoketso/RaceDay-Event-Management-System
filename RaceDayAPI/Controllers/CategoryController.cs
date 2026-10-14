@@ -8,7 +8,7 @@ namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "Organiser")]
     public class CategoryController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -25,6 +25,7 @@ namespace RaceDayAPI.Controllers
             return Ok(categories);
         }
 
+        [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateCategory(Category newCategory)
         {
@@ -33,6 +34,7 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetCategories), new { id = newCategory.CategoryID }, newCategory);
         }
+        [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory(int id, Category updatedCategory)
         {
@@ -51,6 +53,7 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingCategory);
         }
+        [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
