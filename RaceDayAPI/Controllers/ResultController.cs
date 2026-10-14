@@ -34,5 +34,34 @@ namespace RaceDayAPI.Controllers
                 new { id = newResult.ResultID },
                 newResult);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateResult(int id, Result updatedResult)
+        {
+            var existingResult = await _context.Results.FindAsync(id);
+
+            if (existingResult == null)
+                return NotFound();
+
+            existingResult.EnrolmentID = updatedResult.EnrolmentID;
+            existingResult.FinishTime = updatedResult.FinishTime;
+            existingResult.FinishPosition = updatedResult.FinishPosition;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingResult);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteResult(int id)
+        {
+            var result = await _context.Results.FindAsync(id);
+
+            if (result == null)
+                return NotFound();
+
+            _context.Results.Remove(result);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
