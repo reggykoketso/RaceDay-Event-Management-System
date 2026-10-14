@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using RaceDayAPI.Data;
 using RaceDayAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly RaceDayContext _context;
