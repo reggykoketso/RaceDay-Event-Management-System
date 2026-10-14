@@ -31,5 +31,36 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetCategories), new { id = newCategory.CategoryID }, newCategory);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCategory(int id, Category updatedCategory)
+        {
+            var existingCategory = await _context.Categories.FindAsync(id);
+
+            if (existingCategory == null)
+                return NotFound();
+
+            existingCategory.EventID = updatedCategory.EventID;
+            existingCategory.CategoryName = updatedCategory.CategoryName;
+            existingCategory.AgeMinimum = updatedCategory.AgeMinimum;
+            existingCategory.AgeMaximum = updatedCategory.AgeMaximum;
+            existingCategory.Distance = updatedCategory.Distance;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingCategory);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var category = await _context.Categories.FindAsync(id);
+
+            if (category == null)
+                return NotFound();
+
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
