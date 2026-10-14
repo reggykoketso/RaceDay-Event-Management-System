@@ -31,5 +31,37 @@ namespace RaceDayAPI.Controllers
 
             return CreatedAtAction(nameof(GetUsers), new { id = newUser.UserID }, newUser);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, User updatedUser)
+        {
+            var existingUser = await _context.Users.FindAsync(id);
+
+            if (existingUser == null)
+                return NotFound();
+
+            existingUser.FirstName = updatedUser.FirstName;
+            existingUser.LastName = updatedUser.LastName;
+            existingUser.Email = updatedUser.Email;
+            existingUser.PasswordHash = updatedUser.PasswordHash;
+            existingUser.Role = updatedUser.Role;
+            existingUser.Phone = updatedUser.Phone;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingUser);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+                return NotFound();
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
