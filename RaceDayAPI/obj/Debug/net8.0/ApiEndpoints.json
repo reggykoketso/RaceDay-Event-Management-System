@@ -89,6 +89,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RaceDayAPI.Controllers.RouteController",
+    "Method": "GetRoutes",
+    "RelativePath": "api/Route",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDayAPI.Controllers.RouteController",
+    "Method": "CreateRoute",
+    "RelativePath": "api/Route",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newRoute",
+        "Type": "RaceDayAPI.Models.Route",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RaceDayAPI.Controllers.UserController",
     "Method": "GetUsers",
     "RelativePath": "api/User",
