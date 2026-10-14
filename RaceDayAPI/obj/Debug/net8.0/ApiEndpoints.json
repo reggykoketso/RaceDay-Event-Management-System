@@ -26,6 +26,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RaceDayAPI.Controllers.EnrolmentController",
+    "Method": "GetEnrolments",
+    "RelativePath": "api/Enrolment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDayAPI.Controllers.EnrolmentController",
+    "Method": "CreateEnrolment",
+    "RelativePath": "api/Enrolment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newEnrolment",
+        "Type": "RaceDayAPI.Models.Enrolment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RaceDayAPI.Controllers.EventController",
     "Method": "GetEvents",
     "RelativePath": "api/Event",
