@@ -119,17 +119,20 @@ namespace RaceDayAPI.Data
             modelBuilder.Entity<Enrolment>()
                 .HasOne<User>()
                 .WithMany()
-                .HasForeignKey(e => e.ParticipantID);
+                .HasForeignKey(e => e.ParticipantID)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Enrolment>()
                 .HasOne<Event>()
                 .WithMany()
-                .HasForeignKey(e => e.EventID);
+                .HasForeignKey(e => e.EventID)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Enrolment>()
                 .HasOne<Category>()
                 .WithMany()
-                .HasForeignKey(e => e.CategoryID);
+                .HasForeignKey(e => e.CategoryID)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Enrolment>()
                 .HasIndex(e => new { e.ParticipantID, e.EventID })
