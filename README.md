@@ -82,7 +82,9 @@ The GitHub Actions validation workflow was successfully executed to verify the r
 
 The successful workflow run is shown in the CI/CD evidence screenshot below.
 
-![CI/CD Success](evidence/CI-CD-Success.png)
+!The successful Part 2 GitHub Actions workflow run is shown below.
+
+![Part 2 CI/CD Success](evidence/Part2-CI-CD-Success.png)
 
 ## Database
 
