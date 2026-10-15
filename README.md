@@ -1,5 +1,7 @@
 # RaceDay – Event Management System
 
+[![RaceDay API CI](https://github.com/reggykokotso/RaceDay-Event-Management-System/actions/workflows/dotnet.yml/badge.svg?branch=part-2-restful-api)](https://github.com/reggykokotso/RaceDay-Event-Management-System/actions/workflows/dotnet.yml)
+
 ## Project Overview
 
 RaceDay is a full-stack web-based event management system designed for the South African road running, walking and cycling community. The system aims to make it easier for event organisers to manage events, categories, participant enrolments and race results, while allowing participants to browse upcoming events, enter races and track their personal performance.
@@ -50,7 +52,20 @@ RaceDay/
 │
 ├── .github/
 │   └── workflows/
-│       └── validate-docs.yml
+│       ├── validate-docs.yml
+│       └── dotnet.yml
+│
+├── RaceDayAPI/
+│   ├── Controllers/
+│   ├── Data/
+│   ├── Models/
+│   ├── Migrations/
+│   ├── Properties/
+│   ├── appsettings.json
+│   └── Program.cs
+│
+├── RaceDayAPI.Tests/
+│   └── UnitTest1.cs
 │
 └── README.md
 ```
@@ -142,12 +157,68 @@ The `/docs` folder contains the Part 1 planning and database documentation, whil
 
 This structure will be maintained as the project progresses through Parts 2 and 3.
 
+## Part 2 – RESTful API
+
+Part 2 implements the RaceDay RESTful API using ASP.NET Core Web API and .NET 8. The API connects to the SQL Server database using Entity Framework Core.
+
+### API Features
+
+- RESTful CRUD endpoints for users, events, categories, routes, enrolments and results.
+- User registration and login using JWT authentication.
+- Role-based access for Organisers and Participants.
+- Swagger/OpenAPI documentation and API testing.
+- Entity Framework Core with SQL Server.
+- Unit tests using xUnit and the EF Core InMemory provider.
+- GitHub Actions CI to automatically restore, build and test the API.
+
+### Running the API
+
+1. Open the RaceDay solution in Visual Studio.
+2. Check that SQL Server LocalDB is installed and running.
+3. Check the `RaceDayConnection` connection string in `appsettings.json`.
+4. Open the Package Manager Console and run `Update-Database`.
+5. Set `RaceDayAPI` as the startup project.
+6. Run the project.
+7. Open Swagger in your browser.
+8. Use the authentication endpoints to register or log in, then test the API endpoints.
+
+### Unit Testing
+
+The `RaceDayAPI.Tests` project contains automated xUnit tests for the authentication and registration functionality.
+
+The tests use the EF Core InMemory provider, allowing them to run without modifying the SQL Server database.
+
+The current tests verify that participant registration succeeds with valid details and that duplicate email registration is rejected.
+
+To run the tests, open a terminal at the repository root and execute:
+
+`dotnet test RaceDayAPI.Tests/RaceDayAPI.Tests.csproj`
+
+### Continuous Integration
+
+GitHub Actions is used to automatically restore dependencies, build the RaceDay API and run the automated unit tests whenever changes are pushed to the repository.
+
+### API Endpoints
+
+The RaceDay API provides RESTful endpoints for managing the main resources of the system.
+
+| Resource | Main Operations |
+|---|---|
+| Authentication | Register and login users |
+| Users | Create, view, update and delete users |
+| Events | Create, view, update and delete events |
+| Categories | Create, view, update and delete event categories |
+| Routes | Create, view, update and delete race routes |
+| Enrolments | Create, view, update and delete participant enrolments |
+| Results | Create, view, update and delete race results |
+
+The API endpoints can be viewed and tested through the Swagger/OpenAPI interface when the application is running.
+
+
 ## Future Development
 
-Part 1 provides the foundation for the development of the RaceDay platform.
+Part 2 has implemented the RaceDay RESTful API, authentication, database connectivity, automated unit tests and GitHub Actions continuous integration.
 
-In Part 2, the planned RESTful API will be implemented and connected to the SQL Server database. Authentication and role-based access control will also be implemented and tested.
+In Part 3, an MVC web application will consume the RESTful API and provide the user interface for Organisers and Participants. Additional functionality such as Azure Blob Storage and Docker containerisation will also be integrated.
 
-In Part 3, an MVC web application will consume the API and provide the user interface for Organisers and Participants. Additional functionality such as Azure Blob Storage and Docker containerisation will also be integrated.
-
-The database and API planning completed in Part 1 will therefore be used as the foundation for the remaining stages of the project.
+The database design and RESTful API developed in Parts 1 and 2 will therefore provide the foundation for the final stage of the RaceDay system.
