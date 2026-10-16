@@ -17,7 +17,7 @@ namespace RaceDayAPI.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Organiser")]
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {

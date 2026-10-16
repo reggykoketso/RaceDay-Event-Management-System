@@ -18,7 +18,7 @@ namespace RaceDayAPI.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Organiser")]
         [HttpGet]
         public async Task<IActionResult> GetEnrolments()
         {
@@ -26,7 +26,7 @@ namespace RaceDayAPI.Controllers
             return Ok(enrolments);
         }
 
-        [Authorize(Roles = "Organiser")]
+        [Authorize(Roles = "Participant")]
         [HttpPost]
         public async Task<IActionResult> CreateEnrolment(Enrolment newEnrolment)
         {
