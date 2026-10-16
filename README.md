@@ -76,6 +76,13 @@ The Part 1 video presentation demonstrates the RaceDay system planning, ERD, API
 
 [Watch the Part 1 Video on YouTube](https://youtu.be/KbGUxsuErm0)
 
+
+## Part 2 Demonstration Video
+
+The demonstration video covers the RaceDay RESTful API, database integration, JWT authentication, role-based access control, automated testing, and GitHub Actions CI/CD.
+
+**YouTube:** https://youtu.be/FPimfRnT3qo
+
 ## CI/CD
 
 The GitHub Actions validation workflow was successfully executed to verify the required RaceDay documentation structure.

@@ -97,9 +97,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{07D3266D-52FA-41C9-9472-6FD4610ABF4B}|RaceDayAPI.csproj|c:\\users\\student\\documents\\github\\raceday-event-management-system\\racedayapi\\models\\event.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{07D3266D-52FA-41C9-9472-6FD4610ABF4B}|RaceDayAPI.csproj|solutionrelative:models\\event.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Student\\AppData\\Local\\Temp\\dxdkwayk..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -109,26 +106,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": 22,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "dxdkwayk..sql ",
+              "Title": "dxdkwayk..sql",
               "DocumentMoniker": "C:\\Users\\Student\\AppData\\Local\\Temp\\dxdkwayk..sql",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\dxdkwayk..sql",
-              "ToolTip": "dxdkwayk..sql ",
+              "ToolTip": "C:\\Users\\Student\\AppData\\Local\\Temp\\dxdkwayk..sql",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\dxdkwayk..sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-10-15T09:15:21.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-15T09:15:21.6Z"
             },
             {
               "$type": "Document",
@@ -186,8 +175,7 @@
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AgIAAGEAAABAcDMzMzMCwD0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T07:40:48.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T07:40:48.559Z"
             },
             {
               "$type": "Document",
@@ -199,8 +187,7 @@
               "RelativeToolTip": "Controllers\\ResultController.cs",
               "ViewState": "AgIAAB4AAAAANTMzMzM2wBQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T06:57:53.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T06:57:53.171Z"
             },
             {
               "$type": "Document",
@@ -212,8 +199,7 @@
               "RelativeToolTip": "Controllers\\EnrolmentController.cs",
               "ViewState": "AgIAABsAAADAAgAAAEAwwCUAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T06:48:57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T06:48:57Z"
             },
             {
               "$type": "Document",
@@ -225,8 +211,7 @@
               "RelativeToolTip": "Controllers\\RouteController.cs",
               "ViewState": "AgIAABcAAABAZGZmZiYnwBMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T06:42:58.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T06:42:58.096Z"
             },
             {
               "$type": "Document",
@@ -238,8 +223,7 @@
               "RelativeToolTip": "Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAsAAABAzMzMzMwnwBMAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T06:36:24.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T06:36:24.531Z"
             },
             {
               "$type": "Document",
@@ -251,8 +235,7 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AgIAABwAAAAAn5mZmdkowBMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T06:28:37.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T06:28:37.951Z"
             },
             {
               "$type": "Document",
@@ -346,8 +329,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAQAAADg/////389wBIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T12:36:12.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T12:36:12.857Z"
             },
             {
               "$type": "Document",
@@ -408,8 +390,7 @@
               "RelativeToolTip": "Controllers\\EventController.cs",
               "ViewState": "AgIAAD0AAAAAoP/////Pvw8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T09:00:07.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T09:00:07.096Z"
             },
             {
               "$type": "Document",
@@ -422,6 +403,14 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-10-12T10:17:15.872Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
