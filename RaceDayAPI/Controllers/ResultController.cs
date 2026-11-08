@@ -9,7 +9,6 @@ namespace RaceDayAPI.Controllers
     [ApiController]
     [Route("api/[controller]")]
 
-    [Authorize(Roles = "Organiser")]
     public class ResultController : ControllerBase
     {
         private readonly RaceDayContext _context;

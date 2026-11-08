@@ -11,6 +11,7 @@
     </div>
 
     <div class="row g-4 mt-2 mb-4">
+
         <div class="col-md-6">
             <div class="card shadow p-4">
                 <h5>Total Events</h5>
@@ -24,34 +25,49 @@
                 <h2>@ViewBag.EnrolmentCount</h2>
             </div>
         </div>
+
     </div>
 
     <div class="row g-4 mt-2">
+
         <div class="col-md-4">
             <div class="card shadow p-4 h-100">
                 <h4>Manage Events</h4>
                 <p>Create, update and manage race events.</p>
-                <a asp-controller="Organiser" asp-action="Events"
-                   class="btn btn-dark">Manage Events</a>
+
+                <a asp-controller="Organiser"
+                   asp-action="Events"
+                   class="btn btn-dark">
+                    Manage Events
+                </a>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card shadow p-4 h-100">
                 <h4>Enrolments</h4>
-                <p>View participant registrations.</p>
-                <a asp-controller="Organiser" asp-action="Enrolments"
-                   class="btn btn-dark">View Enrolments</a>
+                <p>View and manage participant enrolments.</p>
+
+                <a asp-controller="Organiser"
+                   asp-action="Enrolments"
+                   class="btn btn-dark">
+                    View Enrolments
+                </a>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card shadow p-4 h-100">
                 <h4>Race Results</h4>
-                <p>Enter and publish race results.</p>
-                <a asp-controller="Organiser" asp-action="Results"
-                   class="btn btn-dark">Manage Results</a>
+                <p>Add, update and publish race results.</p>
+
+                <a asp-controller="Result"
+                   asp-action="Index"
+                   class="btn btn-dark">
+                    Manage Results
+                </a>
             </div>
         </div>
+
     </div>
 </div>

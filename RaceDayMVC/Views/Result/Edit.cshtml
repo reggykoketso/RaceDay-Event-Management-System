@@ -1,0 +1,72 @@
+﻿@model RaceDayMVC.Models.ResultCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit Race Result";
+}
+
+<div class="container mt-4">
+    <h2>Edit Race Result</h2>
+
+    <form asp-action="Edit"
+          asp-route-id="@ViewBag.ResultID"
+          method="post">
+
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All"
+             class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="EnrolmentID" class="form-label">
+                Participant Enrolment
+            </label>
+
+            <select asp-for="EnrolmentID" class="form-select">
+                @foreach (var item in Model.Enrolments)
+                {
+                    <option value="@item.EnrolmentID">
+                        @item.DisplayName
+                    </option>
+                }
+            </select>
+
+            <span asp-validation-for="EnrolmentID"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FinishTime" class="form-label">
+                Finish Time (HH:MM:SS)
+            </label>
+
+            <input asp-for="FinishTime"
+                   class="form-control"
+                   placeholder="01:25:30" />
+
+            <span asp-validation-for="FinishTime"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FinishPosition" class="form-label">
+                Finish Position
+            </label>
+
+            <input asp-for="FinishPosition"
+                   type="number"
+                   min="1"
+                   class="form-control" />
+
+            <span asp-validation-for="FinishPosition"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Update Result
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+</div>
