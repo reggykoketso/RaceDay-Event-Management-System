@@ -1,8 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+
+    <div class="p-5 mb-4 bg-white rounded-3 shadow text-center">
+        <h1 class="display-4 fw-bold">Welcome to RaceDay</h1>
+
+        <p class="lead mt-3">
+            Your platform for managing, discovering and participating
+            in exciting running events.
+        </p>
+
+        <p class="text-muted">
+            Register for events, explore race categories and track race results.
+        </p>
+
+        @if (string.IsNullOrEmpty(Context.Session.GetString("UserID")))
+        {
+            <a asp-controller="Auth"
+               asp-action="Register"
+               class="btn btn-dark btn-lg mt-3">
+                Get Started
+            </a>
+
+            <a asp-controller="Auth"
+               asp-action="Login"
+               class="btn btn-outline-dark btn-lg mt-3">
+                Login
+            </a>
+        }
+        else if (Context.Session.GetString("UserRole") == "Participant")
+        {
+            <a asp-controller="Participant"
+               asp-action="Index"
+               class="btn btn-dark btn-lg mt-3">
+                My Dashboard
+            </a>
+        }
+        else if (Context.Session.GetString("UserRole") == "Organiser")
+        {
+            <a asp-controller="Organiser"
+               asp-action="Index"
+               class="btn btn-dark btn-lg mt-3">
+                Organiser Dashboard
+            </a>
+        }
+    </div>
+
+    <div class="row g-4 mt-3">
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100 text-center">
+                <h4>Discover Events</h4>
+                <p>Explore available running events and find your next challenge.</p>
+                <a asp-controller="Event"
+                   asp-action="Index"
+                   class="btn btn-dark mt-auto">
+                    Browse Events
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100 text-center">
+                <h4>Explore Categories</h4>
+                <p>Find race categories that match your interests and abilities.</p>
+                <a asp-controller="Category"
+                   asp-action="Index"
+                   class="btn btn-dark mt-auto">
+                    View Categories
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100 text-center">
+                <h4>Race Results</h4>
+                <p>Keep track of finishing times and race positions.</p>
+                <a asp-controller="Result"
+                   asp-action="Index"
+                   class="btn btn-dark mt-auto">
+                    View Results
+                </a>
+            </div>
+        </div>
+
+    </div>
 </div>

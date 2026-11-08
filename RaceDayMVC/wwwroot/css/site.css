@@ -20,3 +20,113 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* =====================================
+   RACEDAY - WEBSITE STYLING
+===================================== */
+
+body {
+    background-color: #f5f6fa;
+    color: #212529;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #172554 !important;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: white !important;
+    transition: 0.3s;
+}
+
+    .nav-link:hover {
+        color: #facc15 !important;
+    }
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #172554;
+    font-weight: bold;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    }
+
+/* Buttons */
+.btn-dark {
+    background-color: #172554;
+    border-color: #172554;
+}
+
+    .btn-dark:hover {
+        background-color: #1e40af;
+        border-color: #1e40af;
+    }
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Tables */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .table thead {
+        background-color: #172554;
+        color: white;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+/* Forms */
+.form-control,
+.form-select {
+    border-radius: 7px;
+    padding: 10px;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+    }
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    margin-top: 40px;
+}
+
+/* Page spacing */
+.container {
+    max-width: 1200px;
+}
