@@ -17,8 +17,7 @@ namespace RaceDayAPI.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles ="Participant, Organiser")
-         ]
+        [Authorize(Roles = "Participant,Organiser")]
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {

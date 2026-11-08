@@ -1,0 +1,63 @@
+﻿@model List<RaceDayMVC.Models.CategoryViewModel>
+@{
+    ViewData["Title"] = "Categories";
+    var organiser = Context.Session.GetString("UserRole") == "Organiser";
+}
+<div class="container mt-4">
+    <h2>Event Categories</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    @if (organiser)
+    {
+        <a asp-action="Create" class="btn btn-dark mb-3">Add Category</a>
+    }
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Event ID</th>
+                <th>Minimum Age</th>
+                <th>Maximum Age</th>
+                <th>Distance (km)</th>
+                @if (organiser)
+                {
+                    <th>Actions</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryName</td>
+                    <td>@item.EventID</td>
+                    <td>@item.AgeMinimum</td>
+                    <td>@item.AgeMaximum</td>
+                    <td>@item.Distance</td>
+                    @if (organiser)
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CategoryID" class="btn btn-primary btn-sm">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.CategoryID" method="post" class="d-inline">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

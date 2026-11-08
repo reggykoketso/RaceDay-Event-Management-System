@@ -28,6 +28,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Enrolment/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5yb2xtZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Enrolment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5yb2xtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Event/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,6 +78,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Participant/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Route/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Route/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Route/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm91dGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Student/Documents/GitHub/RaceDay-Event-Management-System/RaceDayMVC/Views/Shared/Error.cshtml]

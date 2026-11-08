@@ -5,70 +5,123 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RaceDay</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RaceDayMVC.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-4">
             <div class="container">
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home" asp-action="Index">
                     RaceDay
                 </a>
 
                 <button class="navbar-toggler" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
+
                     <ul class="navbar-nav me-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link"
+                               asp-controller="Home" asp-action="Index">
+                                Home
+                            </a>
                         </li>
 
                         @if (Context.Session.GetString("UserRole") == "Participant")
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Participant" asp-action="Index">
+                                <a class="nav-link"
+                                   asp-controller="Participant" asp-action="Index">
                                     My Dashboard
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Event" asp-action="Index">
+                                <a class="nav-link"
+                                   asp-controller="Event" asp-action="Index">
                                     Browse Events
                                 </a>
                             </li>
-                        }
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Category" asp-action="Index">
+                                    Categories
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Route" asp-action="Index">
+                                    Routes
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Enrolment" asp-action="Index">
+                                    My Enrolments
+                                </a>
+                            </li>
                         }
                         else if (Context.Session.GetString("UserRole") == "Organiser")
                         {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Organiser" asp-action="Index">
-                                My Dashboard
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Organiser" asp-action="Index">
+                                    My Dashboard
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Event" asp-action="Index">
-                                Manage Events
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Event" asp-action="Index">
+                                    Manage Events
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Category" asp-action="Index">
+                                    Categories
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Route" asp-action="Index">
+                                    Routes
+                                </a>
+                            </li>
                         }
+
                     </ul>
 
                     <ul class="navbar-nav">
+
                         @if (string.IsNullOrEmpty(Context.Session.GetString("UserID")))
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Auth" asp-action="Login">
+                                <a class="nav-link"
+                                   asp-controller="Auth" asp-action="Login">
                                     Login
                                 </a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Auth" asp-action="Register">
+                                <a class="nav-link"
+                                   asp-controller="Auth" asp-action="Register">
                                     Register
                                 </a>
                             </li>
@@ -80,13 +133,17 @@
                                     @Context.Session.GetString("UserEmail")
                                 </span>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Auth" asp-action="Logout">
+                                <a class="nav-link"
+                                   asp-controller="Auth" asp-action="Logout">
                                     Logout
                                 </a>
                             </li>
                         }
+
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -107,6 +164,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

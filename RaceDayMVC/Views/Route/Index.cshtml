@@ -1,0 +1,52 @@
+﻿@model List<RaceDayMVC.Models.RouteViewModel>
+@{
+    ViewData["Title"] = "Routes";
+    var organiser = Context.Session.GetString("UserRole") == "Organiser";
+}
+<div class="container mt-4">
+    <h2>Race Routes</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    @if (organiser)
+    {
+        <a asp-action="Create" class="btn btn-dark mb-3">Add Route</a>
+    }
+
+    <div class="row g-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card shadow p-3">
+                    <h5>@item.RouteName</h5>
+                    <p><strong>Event ID:</strong> @item.EventID</p>
+                    <p><strong>Start:</strong> @item.StartLocation</p>
+                    <p><strong>Finish:</strong> @item.FinishLocation</p>
+                    <p><strong>Distance:</strong> @item.Distance km</p>
+                    <p>@item.RouteDescription</p>
+
+                    @if (organiser)
+                    {
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@item.RouteID" class="btn btn-primary btn-sm">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.RouteID" method="post" class="d-inline">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

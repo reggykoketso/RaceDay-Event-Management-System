@@ -1,0 +1,65 @@
+﻿@model RaceDayMVC.Models.EnrolmentCreateViewModel
+
+@{
+    ViewData["Title"] = "Enrol for an Event";
+}
+
+<div class="container mt-4">
+    <h2>Enrol for an Event</h2>
+    <p>Select an event and the category you want to enter.</p>
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All"
+             class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="EventID" class="form-label">
+                Select Event
+            </label>
+
+            <select asp-for="EventID" class="form-select">
+                <option value="">-- Select an Event --</option>
+
+                @foreach (var item in Model.Events)
+                {
+                    <option value="@item.EventID">
+                        @item.Name
+                    </option>
+                }
+            </select>
+
+            <span asp-validation-for="EventID"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CategoryID" class="form-label">
+                Select Category
+            </label>
+
+            <select asp-for="CategoryID" class="form-select">
+                <option value="">-- Select a Category --</option>
+
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.CategoryID">
+                        @item.CategoryName
+                    </option>
+                }
+            </select>
+
+            <span asp-validation-for="CategoryID"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Confirm Enrolment
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+    </form>
+</div>
