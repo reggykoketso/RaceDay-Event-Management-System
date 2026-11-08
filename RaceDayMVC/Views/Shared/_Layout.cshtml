@@ -35,14 +35,27 @@
                                     My Dashboard
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Event" asp-action="Index">
+                                    Browse Events
+                                </a>
+                            </li>
+                        }
                         }
                         else if (Context.Session.GetString("UserRole") == "Organiser")
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Organiser" asp-action="Index">
-                                    My Dashboard
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Organiser" asp-action="Index">
+                                My Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Event" asp-action="Index">
+                                Manage Events
+                            </a>
+                        </li>
                         }
                     </ul>
 

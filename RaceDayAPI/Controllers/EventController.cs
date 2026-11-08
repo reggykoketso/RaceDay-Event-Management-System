@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using RaceDayAPI.Data;
 using RaceDayAPI.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Organiser")]
     public class EventController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -17,15 +16,30 @@ namespace RaceDayAPI.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Participant, Organiser")]
+
+        // Participants and organisers can view all events.
+        [Authorize(Roles = "Participant,Organiser")]
         [HttpGet]
         public async Task<IActionResult> GetEvents()
         {
             var events = await _context.Events.ToListAsync();
-
             return Ok(events);
         }
 
+        // Participants and organisers can view one event.
+        [Authorize(Roles = "Participant,Organiser")]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetEvent(int id)
+        {
+            var existingEvent = await _context.Events.FindAsync(id);
+
+            if (existingEvent == null)
+                return NotFound();
+
+            return Ok(existingEvent);
+        }
+
+        // Only organisers can create events.
         [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateEvent(Event newEvent)
@@ -33,8 +47,13 @@ namespace RaceDayAPI.Controllers
             _context.Events.Add(newEvent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetEvents), new { id = newEvent.EventID }, newEvent);
+            return CreatedAtAction(
+                nameof(GetEvent),
+                new { id = newEvent.EventID },
+                newEvent);
         }
+
+        // Only organisers can update events.
         [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEvent(int id, Event updatedEvent)
@@ -42,9 +61,7 @@ namespace RaceDayAPI.Controllers
             var existingEvent = await _context.Events.FindAsync(id);
 
             if (existingEvent == null)
-            {
                 return NotFound();
-            }
 
             existingEvent.OrganiserId = updatedEvent.OrganiserId;
             existingEvent.Name = updatedEvent.Name;
@@ -58,6 +75,8 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingEvent);
         }
+
+        // Only organisers can delete events.
         [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
@@ -65,9 +84,7 @@ namespace RaceDayAPI.Controllers
             var existingEvent = await _context.Events.FindAsync(id);
 
             if (existingEvent == null)
-            {
                 return NotFound();
-            }
 
             _context.Events.Remove(existingEvent);
             await _context.SaveChangesAsync();
