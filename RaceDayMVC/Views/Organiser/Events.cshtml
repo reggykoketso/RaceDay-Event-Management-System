@@ -1,0 +1,71 @@
+﻿@model List<RaceDayMVC.Models.EventViewModel>
+
+@{
+    ViewData["Title"] = "Manage Events";
+}
+
+<div class="container mt-4">
+    <h2>Manage Race Events</h2>
+    <p class="text-muted">View and manage events in RaceDay.</p>
+
+    <a asp-controller="Event" asp-action="Create"
+       class="btn btn-success mb-3">
+        Create New Event
+    </a>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            No events are currently available.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Distance (km)</th>
+                        <th>Event Type</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.EventDate.ToString("dd MMM yyyy")</td>
+                            <td>@item.Location</td>
+                            <td>@item.Distance</td>
+                            <td>@item.EventType</td>
+                            <td>
+                                <a asp-controller="Event"
+                                   asp-action="Details"
+                                   asp-route-id="@item.EventID"
+                                   class="btn btn-sm btn-primary">
+                                    View
+                                </a>
+
+                                <a asp-controller="Event"
+                                   asp-action="Edit"
+                                   asp-route-id="@item.EventID"
+                                   class="btn btn-sm btn-warning">
+                                    Edit
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <a asp-controller="Organiser" asp-action="Index"
+       class="btn btn-secondary mt-2">
+        Back to Dashboard
+    </a>
+</div>
