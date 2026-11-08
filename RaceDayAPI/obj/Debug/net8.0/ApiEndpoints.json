@@ -185,6 +185,22 @@
   },
   {
     "ContainingType": "RaceDayAPI.Controllers.EventController",
+    "Method": "GetEvent",
+    "RelativePath": "api/Event/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDayAPI.Controllers.EventController",
     "Method": "UpdateEvent",
     "RelativePath": "api/Event/{id}",
     "HttpMethod": "PUT",
