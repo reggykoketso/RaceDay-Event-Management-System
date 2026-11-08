@@ -47,7 +47,7 @@ namespace RaceDayMVC.Controllers
                 return RedirectToAction("Index", "Organiser");
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Participant");
         }
 
         [HttpGet]
