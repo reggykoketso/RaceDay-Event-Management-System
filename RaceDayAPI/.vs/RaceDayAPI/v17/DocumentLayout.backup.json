@@ -302,10 +302,18 @@
               "RelativeDocumentMoniker": "..\\RaceDayMVC\\Views\\Event\\Create.cshtml",
               "ToolTip": "C:\\Users\\Student\\Documents\\GitHub\\RaceDay-Event-Management-System\\RaceDayMVC\\Views\\Event\\Create.cshtml",
               "RelativeToolTip": "..\\RaceDayMVC\\Views\\Event\\Create.cshtml",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAiwJAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAADwv44AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-08T10:26:05.222Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
             },
             {
               "$type": "Document",
@@ -1080,14 +1088,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-10-12T09:28:29.36Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

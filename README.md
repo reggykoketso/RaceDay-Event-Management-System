@@ -1,197 +1,179 @@
 # RaceDay Event Management System
 
+## PROG6212 – Part 3
+
+**Student:** Malesela Regina Mothiba  
+**Project:** RaceDay Event Management System  
+**Repository:** [GitHub – RaceDay Event Management System](https://github.com/reggykoketso/RaceDay-Event-Management-System)  
+**Demonstration Video:** [Watch the RaceDay Project Presentation](https://youtu.be/U_qnsVxZCAY)
+
+---
+
 ## 1. Project Overview
 
-RaceDay is an Event Management System developed using ASP.NET Core Web API and ASP.NET Core MVC. The application allows event organisers to manage running events, categories and participant results, while participants can browse events, enrol in events and view their results.
+RaceDay is an event management system developed to manage running events and participants. The system allows organisers to manage events and allows participants to browse available events, enrol and view their event information.
 
-This project was developed as part of the PROG6212 Programming Portfolio of Evidence (POE), Part 3.
+Part 3 extends the RESTful API developed in Part 2 by introducing an ASP.NET Core MVC frontend. The MVC application communicates with the API to retrieve and manage information.
 
 ## 2. Technologies Used
 
 - C#
-- ASP.NET Core Web API (.NET 8)
-- ASP.NET Core MVC (.NET 8)
+- ASP.NET Core Web API
+- ASP.NET Core MVC
+- .NET 8
 - Entity Framework Core
 - Microsoft SQL Server
-- HTML, CSS and Bootstrap
+- HTML and CSS
+- Bootstrap
 - JavaScript
 - Docker
-- Azure Blob Storage (API integration)
+- Azure Blob Storage
+- Git and GitHub
+- Swagger / OpenAPI
 
 ## 3. System Features
 
-### Participants
+### Participant Features
+
 - Register and log in.
-- Browse upcoming events.
-- View event details.
-- View available event categories.
+- Browse available events.
+- View event information.
 - Enrol in events.
 - View personal enrolments.
-- View results.
+- Access available results and profile functionality.
 
-### Organisers
-- Log in using an organiser account.
-- View and manage events.
-- Create, edit and delete events.
-- Manage event categories.
-- View participant enrolments.
-- Manage participant results.
+### Organiser Features
 
-## 4. System Architecture
+- Register and log in as an organiser.
+- Access organiser functionality.
+- Create and manage events.
+- Manage event information.
+- Manage categories and enrolments.
+- Access results management functionality.
+
+### API Integration
+
+The MVC frontend communicates with the RaceDay RESTful API using HTTP requests and `HttpClient`.
+
+The API handles communication with the database, while the MVC application provides the user interface.
+
+## 4. Project Architecture
 
 The system consists of two main applications:
 
-**RaceDayAPI**
+**RaceDay API**
 - Handles application data and business operations.
-- Provides RESTful API endpoints.
-- Handles authentication and authorisation.
 - Communicates with the SQL Server database.
-- Provides the integration point for Azure Blob Storage.
+- Provides RESTful endpoints.
+- Handles authentication and authorisation.
 
-**RaceDayMVC**
+**RaceDay MVC**
 - Provides the user interface.
-- Uses MVC controllers and views.
-- Communicates with the API using HttpClient.
-- Displays information returned by the API.
-- Provides role-based navigation for participants and organisers.
+- Communicates with the API.
+- Displays event information.
+- Provides participant and organiser functionality.
 
-The MVC application communicates with the API instead of accessing the database directly.
+## 5. Database
 
-## 5. Project Structure
+The application uses Microsoft SQL Server with Entity Framework Core.
 
-```text
-RaceDay-Event-Management-System/
-│
-├── RaceDayAPI/
-│   ├── Controllers/
-│   ├── Data/
-│   ├── Models/
-│   └── Program.cs
-│
-├── RaceDayMVC/
-│   ├── Controllers/
-│   ├── Models/
-│   ├── Views/
-│   ├── wwwroot/
-│   ├── Program.cs
-│   └── Dockerfile
-│
-├── README.md
-└── .github/
-    └── workflows/
-```
+The database stores information relating to:
+- Users
+- Events
+- Categories
+- Routes
+- Enrolments
+- Results
 
-*Note: Folder locations may differ slightly depending on the final repository structure.*
+Entity Framework Core is used to manage database operations and migrations.
 
-## 6. Running the Application Locally
+## 6. Authentication and Security
 
-### Requirements
-- Visual Studio 2022
-- .NET 8 SDK
-- SQL Server
-- Docker Desktop (for container execution)
+The system includes registration and login functionality, with role-based access for organisers and participants.
 
-### Step 1: Run the API
+Authorisation is used to restrict access to functionality according to user roles.
 
-1. Open the RaceDay solution in Visual Studio.
-2. Set RaceDayAPI as the startup project.
-3. Start the API.
-4. The API should be accessible at:
+## 7. Azure Blob Storage
 
-```text
-https://localhost:7209
-http://localhost:5225
-```
+Azure Blob Storage integration was implemented in the API to support event banner image uploads.
 
-Swagger documentation:
+The implementation includes:
+- A `BlobStorageService` for uploading images.
+- A `BlobStorageController` endpoint for handling image uploads.
+- Image file validation, including file type and size checks.
+- An MVC upload flow that sends the selected image to the API.
 
-```text
-https://localhost:7209/swagger
-```
+**Important:** Azure Storage account setup was attempted, but container validation prevented successful cloud upload testing. Therefore, the Azure Blob Storage upload functionality has not been fully verified in the Azure environment.
 
-### Step 2: Run the MVC Application
+A valid Azure Blob Storage connection string and container configuration are still required to test the complete upload process.
 
-1. Open the RaceDayMVC project.
-2. Ensure the API is running.
-3. Set RaceDayMVC as the startup project.
-4. Run the MVC application.
+## 8. Docker
 
-The MVC application communicates with the API using HttpClient.
+The MVC application was containerised using Docker.
 
-## 7. Running the MVC Application Using Docker
-
-Docker is used to containerise the RaceDayMVC application.
+A Dockerfile was created using the .NET 8 SDK image to build and publish the application and the .NET 8 ASP.NET runtime image to run it.
 
 ### Build the Docker image
 
-Open PowerShell in the RaceDayMVC project folder and run:
+Open a terminal inside the `RaceDayMVC` project folder and run:
 
-```powershell
+```bash
 docker build -t raceday-mvc .
 ```
 
 ### Run the Docker container
 
-```powershell
+```bash
 docker run -d -p 8080:8080 --name raceday-mvc raceday-mvc
 ```
 
 ### Access the application
 
-Open your browser and visit:
+Open the following address in a browser:
 
 ```text
 http://localhost:8080
 ```
 
-**Important:** The RaceDayAPI must also be running on the host computer using HTTP port 5225. The Docker container connects to it using:
+**Note:** The RaceDay API must also be running on the host computer at:
 
 ```text
-http://host.docker.internal:5225/
+http://localhost:5225
 ```
 
-### Stop the container
+The Docker configuration uses `host.docker.internal` to allow the MVC container to communicate with the API running on the host machine.
 
-```powershell
-docker stop raceday-mvc
+## 9. Running the Application Locally
+
+1. Clone the GitHub repository.
+2. Open the solution in Visual Studio.
+3. Configure the SQL Server connection string.
+4. Ensure the database is created and migrations are applied.
+5. Start the RaceDay API.
+6. Start the RaceDay MVC application.
+7. Open the MVC application in your browser.
+
+The API Swagger documentation can be accessed at:
+
+```text
+https://localhost:7209/swagger
 ```
 
-### Remove the container
+## 10. Demonstration Video
 
-```powershell
-docker rm raceday-mvc
-```
+The project demonstration video explains the RaceDay system, its MVC frontend, API integration, application functionality, Azure Blob Storage implementation and Docker containerisation.
 
-## 8. Azure Blob Storage
+**Video link:** https://youtu.be/U_qnsVxZCAY
 
-Azure Blob Storage is intended to provide cloud-based storage for event banner images. Image uploads are handled through the API, and the MVC application communicates with the API to upload and display event images.
+## 11. GitHub Repository
 
-*Complete this section with the actual Azure configuration, upload endpoint and image-display implementation once verified.*
+The complete project source code is available here:
 
-## 9. Authentication and Security
-
-The application uses JWT authentication and role-based authorisation.
-
-The system supports two roles:
-- Participant
-- Organiser
-
-Protected operations are restricted according to the user's role.
-
-## 10. GitHub Repository
-
-Source code and project development history:
-
-https://github.com/reggykoketso/RaceDay-Event-Management-System.git
-
-## 11. Demonstration Video
-
-YouTube demonstration:
-
-[Insert your unlisted YouTube video link here]
-
-The demonstration covers the MVC application, role-based functionality, API integration, Azure Blob Storage and Docker configuration.
+https://github.com/reggykoketso/RaceDay-Event-Management-System
 
 ## 12. Conclusion
 
-The RaceDay Event Management System brings together a RESTful API and an MVC frontend to provide an event management platform for organisers and participants. Docker provides a containerised environment for running the MVC application.
+The RaceDay Event Management System demonstrates the development of a web-based event management application using ASP.NET Core MVC and a RESTful API.
+
+Through this project, I gained practical experience in API integration, database management, authentication, role-based functionality and Docker containerisation. The project also introduced Azure Blob Storage integration for handling event banner images.
+
