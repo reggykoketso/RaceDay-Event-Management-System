@@ -56,8 +56,89 @@
                 </select>
             </div>
 
+            <hr />
+
+            <h5>Event Banner</h5>
+            <p class="text-muted">Upload a JPG, PNG or WEBP image (maximum 5 MB).</p>
+
+            <div class="mb-3">
+                <input type="file"
+                       id="bannerFile"
+                       class="form-control"
+                       accept=".jpg,.jpeg,.png,.webp" />
+            </div>
+
+            <div id="uploadMessage" class="mb-3"></div>
+
+            <div class="mb-3">
+                <img id="bannerPreview"
+                     src=""
+                     alt="Banner preview"
+                     style="display:none; max-width:300px; max-height:180px;"
+                     class="img-thumbnail" />
+            </div>
+
+            <input asp-for="ImageUrl" type="hidden" id="ImageUrl" />
+
             <button type="submit" class="btn btn-dark">Create Event</button>
             <a asp-action="Index" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("bannerFile").addEventListener("change", async function () {
+            const file = this.files[0];
+            const message = document.getElementById("uploadMessage");
+            const preview = document.getElementById("bannerPreview");
+
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                message.innerHTML = '<div class="alert alert-danger">Image must be smaller than 5 MB.</div>';
+                this.value = "";
+                return;
+            }
+
+            const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
+            if (!allowedTypes.includes(file.type)) {
+                message.innerHTML = '<div class="alert alert-danger">Only JPG, PNG and WEBP images are allowed.</div>';
+                this.value = "";
+                return;
+            }
+
+            message.innerHTML = '<div class="alert alert-info">Uploading banner...</div>';
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                const response = await fetch("/Event/UploadBanner", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(error);
+                }
+
+                const result = await response.json();
+
+                document.getElementById("ImageUrl").value = result.imageUrl;
+
+                preview.src = result.imageUrl;
+                preview.style.display = "block";
+
+                message.innerHTML = '<div class="alert alert-success">Banner uploaded successfully.</div>';
+            }
+            catch (error) {
+                message.innerHTML = '<div class="alert alert-danger">Upload failed: ' + error.message + '</div>';
+            }
+        });
+    </script>
+}

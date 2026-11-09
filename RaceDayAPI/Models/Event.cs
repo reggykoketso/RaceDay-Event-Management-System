@@ -1,3 +1,4 @@
+
 namespace RaceDayAPI.Models
 {
     public class Event
@@ -17,5 +18,8 @@ namespace RaceDayAPI.Models
         public decimal Distance { get; set; }
 
         public string EventType { get; set; } = "Run";
+
+        // URL of the event banner stored in Azure Blob Storage
+        public string? ImageUrl { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace RaceDayMVC.Models
 {
@@ -24,5 +25,8 @@ namespace RaceDayMVC.Models
 
         [Required]
         public string EventType { get; set; } = "Run";
+
+        // Azure event banner image URL
+        public string? ImageUrl { get; set; }
     }
 }

@@ -16,6 +16,8 @@ builder.Services.AddDbContext<RaceDayContext>(options =>
 // Controllers
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<RaceDayAPI.Services.BlobStorageService>();
+
 // Swagger configuration with JWT Bearer authentication
 builder.Services.AddEndpointsApiExplorer();
 

@@ -158,3 +158,17 @@ C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tes
 C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\obj\Debug\net8.0\RaceDayAPI.Tests.pdb
 C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\obj\Debug\net8.0\RaceDayAPI.Tests.genruntimeconfig.cache
 C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\obj\Debug\net8.0\ref\RaceDayAPI.Tests.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Apache.Arrow.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Azure.Storage.Common.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\System.IO.Hashing.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\Student\Documents\GitHub\RaceDay-Event-Management-System\RaceDayAPI.Tests\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

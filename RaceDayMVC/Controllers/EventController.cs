@@ -1,8 +1,9 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using RaceDayMVC.Models;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using RaceDayMVC.Models;
+using System.Text.Json;
 
 namespace RaceDayMVC.Controllers
 {
@@ -191,5 +192,64 @@ namespace RaceDayMVC.Controllers
 
             return RedirectToAction("Index");
         }
+    
+    
+        // Upload an event banner through the API
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UploadBanner(IFormFile file)
+        {
+            if (!IsOrganiser())
+                return Unauthorized();
+
+            if (file == null || file.Length == 0)
+                return BadRequest("Please select an image.");
+
+            if (file.Length > 5 * 1024 * 1024)
+                return BadRequest("Image must be smaller than 5 MB.");
+
+            var allowedTypes = new[]
+            {
+                "image/jpeg",
+                "image/png",
+                "image/webp"
+            };
+
+            if (!allowedTypes.Contains(file.ContentType))
+                return BadRequest("Only JPG, PNG and WEBP images are allowed.");
+
+            var client = CreateApiClient();
+
+            using var form = new MultipartFormDataContent();
+            using var stream = file.OpenReadStream();
+            using var fileContent = new StreamContent(stream);
+
+            fileContent.Headers.ContentType =
+                new MediaTypeHeaderValue(file.ContentType);
+
+            form.Add(fileContent, "file", Path.GetFileName(file.FileName));
+
+            var response = await client.PostAsync(
+                "api/BlobStorage/upload", form);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                return BadRequest(error);
+            }
+
+            using var result = await response.Content.ReadFromJsonAsync<JsonDocument>();
+
+            if (result == null ||
+                !result.RootElement.TryGetProperty("imageUrl", out var url))
+            {
+                return BadRequest("The API did not return an image URL.");
+            }
+
+            return Json(new { imageUrl = url.GetString() });
+        }
     }
 }
+
+
+    
