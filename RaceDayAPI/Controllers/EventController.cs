@@ -17,8 +17,8 @@ namespace RaceDayAPI.Controllers
             _context = context;
         }
 
-        // Participants and organisers can view all events.
-        [Authorize(Roles = "Participant,Organiser")]
+        // Everyone can view all events.
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetEvents()
         {
@@ -27,7 +27,7 @@ namespace RaceDayAPI.Controllers
         }
 
         // Participants and organisers can view one event.
-        [Authorize(Roles = "Participant,Organiser")]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEvent(int id)
         {
@@ -48,9 +48,9 @@ namespace RaceDayAPI.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(
-                nameof(GetEvent),
-                new { id = newEvent.EventID },
-                newEvent);
+                            nameof(GetEvent),
+                            new { id = newEvent.EventID },
+                            newEvent);
         }
 
         // Only organisers can update events.

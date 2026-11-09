@@ -1,6 +1,5 @@
+
 var builder = WebApplication.CreateBuilder(args);
-
-
 
 // Add MVC services
 builder.Services.AddControllersWithViews();
@@ -8,7 +7,10 @@ builder.Services.AddControllersWithViews();
 // Configure connection to RaceDay API
 builder.Services.AddHttpClient("RaceDayAPI", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7209/");
+    var apiUrl = builder.Configuration["RaceDayApiBaseUrl"]
+                 ?? "https://localhost:7209/";
+
+    client.BaseAddress = new Uri(apiUrl);
 });
 
 // Enable session services

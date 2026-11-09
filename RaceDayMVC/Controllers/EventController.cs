@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using RaceDayMVC.Models;
@@ -40,12 +41,9 @@ namespace RaceDayMVC.Controllers
             return HttpContext.Session.GetString("UserRole") == "Organiser";
         }
 
-        // Display all events.
+        // Display all events publicly.
         public async Task<IActionResult> Index()
         {
-            if (!IsLoggedIn())
-                return RedirectToAction("Login", "Auth");
-
             var client = CreateApiClient();
 
             var response = await client.GetAsync("api/Event");
@@ -62,12 +60,9 @@ namespace RaceDayMVC.Controllers
             return View(events ?? new List<EventViewModel>());
         }
 
-        // Display one event.
+        // Display one event publicly.
         public async Task<IActionResult> Details(int id)
         {
-            if (!IsLoggedIn())
-                return RedirectToAction("Login", "Auth");
-
             var client = CreateApiClient();
 
             var response = await client.GetAsync($"api/Event/{id}");

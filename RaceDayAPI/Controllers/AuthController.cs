@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using RaceDayAPI.Data;
 using RaceDayAPI.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace RaceDayAPI.Controllers
 {
@@ -17,14 +18,17 @@ namespace RaceDayAPI.Controllers
     {
         private readonly RaceDayContext _context;
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _environment;
         private readonly PasswordHasher<User> _passwordHasher = new();
 
         public AuthController(
             RaceDayContext context,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IWebHostEnvironment environment)
         {
             _context = context;
             _configuration = configuration;
+            _environment = environment;
         }
 
         public class RegisterRequest
@@ -71,7 +75,49 @@ namespace RaceDayAPI.Controllers
 
             return Ok(new
             {
-                message = "Registration successful.",
+                message = "Participant registration successful.",
+                user.UserID,
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                user.Role
+            });
+        }
+
+        // Development-only organiser account creation
+        [HttpPost("register-organiser")]
+        public async Task<IActionResult> RegisterOrganiser(RegisterRequest request)
+        {
+            if (!_environment.IsDevelopment())
+                return NotFound();
+
+            var email = request.Email.Trim().ToLowerInvariant();
+
+            if (string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(request.Password))
+                return BadRequest("Email and password are required.");
+
+            if (await _context.Users.AnyAsync(u => u.Email == email))
+                return Conflict("An account with this email already exists.");
+
+            var user = new User
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = email,
+                Role = "Organiser",
+                Phone = request.Phone
+            };
+
+            user.PasswordHash =
+                _passwordHasher.HashPassword(user, request.Password);
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                message = "Organiser account created successfully.",
                 user.UserID,
                 user.FirstName,
                 user.LastName,

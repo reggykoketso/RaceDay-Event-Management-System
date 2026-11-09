@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using RaceDayAPI.Data;
 using RaceDayAPI.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace RaceDayAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Organiser")]
     public class CategoryController : ControllerBase
     {
         private readonly RaceDayContext _context;
@@ -17,28 +17,40 @@ namespace RaceDayAPI.Controllers
         {
             _context = context;
         }
+
+        // Participants and organisers can view categories.
         [Authorize(Roles = "Participant,Organiser")]
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
             var categories = await _context.Categories.ToListAsync();
+
             return Ok(categories);
         }
 
+        // Only organisers can create categories.
         [Authorize(Roles = "Organiser")]
         [HttpPost]
         public async Task<IActionResult> CreateCategory(Category newCategory)
         {
             _context.Categories.Add(newCategory);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCategories), new { id = newCategory.CategoryID }, newCategory);
+            return CreatedAtAction(
+                nameof(GetCategories),
+                new { id = newCategory.CategoryID },
+                newCategory);
         }
+
+        // Only organisers can update categories.
         [Authorize(Roles = "Organiser")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, Category updatedCategory)
+        public async Task<IActionResult> UpdateCategory(
+            int id, Category updatedCategory)
         {
-            var existingCategory = await _context.Categories.FindAsync(id);
+            var existingCategory =
+                await _context.Categories.FindAsync(id);
 
             if (existingCategory == null)
                 return NotFound();
@@ -53,6 +65,8 @@ namespace RaceDayAPI.Controllers
 
             return Ok(existingCategory);
         }
+
+        // Only organisers can delete categories.
         [Authorize(Roles = "Organiser")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
@@ -63,6 +77,7 @@ namespace RaceDayAPI.Controllers
                 return NotFound();
 
             _context.Categories.Remove(category);
+
             await _context.SaveChangesAsync();
 
             return NoContent();

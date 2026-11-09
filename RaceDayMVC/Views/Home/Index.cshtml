@@ -1,90 +1,121 @@
-﻿@{
+﻿@model List<RaceDayMVC.Models.Event>
+
+@{
     ViewData["Title"] = "Home";
 }
 
-<div class="container mt-5">
+<div class="container mt-4">
 
-    <div class="p-5 mb-4 bg-white rounded-3 shadow text-center">
+    <div class="text-center mb-5">
         <h1 class="display-4 fw-bold">Welcome to RaceDay</h1>
 
-        <p class="lead mt-3">
+        <p class="lead">
             Your platform for managing, discovering and participating
             in exciting running events.
         </p>
 
-        <p class="text-muted">
+        <p>
             Register for events, explore race categories and track race results.
         </p>
-
-        @if (string.IsNullOrEmpty(Context.Session.GetString("UserID")))
-        {
-            <a asp-controller="Auth"
-               asp-action="Register"
-               class="btn btn-dark btn-lg mt-3">
-                Get Started
-            </a>
-
-            <a asp-controller="Auth"
-               asp-action="Login"
-               class="btn btn-outline-dark btn-lg mt-3">
-                Login
-            </a>
-        }
-        else if (Context.Session.GetString("UserRole") == "Participant")
-        {
-            <a asp-controller="Participant"
-               asp-action="Index"
-               class="btn btn-dark btn-lg mt-3">
-                My Dashboard
-            </a>
-        }
-        else if (Context.Session.GetString("UserRole") == "Organiser")
-        {
-            <a asp-controller="Organiser"
-               asp-action="Index"
-               class="btn btn-dark btn-lg mt-3">
-                Organiser Dashboard
-            </a>
-        }
     </div>
 
-    <div class="row g-4 mt-3">
+    <div class="row text-center mb-5">
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 h-100 text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm p-3">
                 <h4>Discover Events</h4>
                 <p>Explore available running events and find your next challenge.</p>
-                <a asp-controller="Event"
-                   asp-action="Index"
-                   class="btn btn-dark mt-auto">
-                    Browse Events
-                </a>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 h-100 text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm p-3">
                 <h4>Explore Categories</h4>
                 <p>Find race categories that match your interests and abilities.</p>
-                <a asp-controller="Category"
-                   asp-action="Index"
-                   class="btn btn-dark mt-auto">
-                    View Categories
-                </a>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card shadow p-4 h-100 text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm p-3">
                 <h4>Race Results</h4>
                 <p>Keep track of finishing times and race positions.</p>
-                <a asp-controller="Result"
-                   asp-action="Index"
-                   class="btn btn-dark mt-auto">
-                    View Results
-                </a>
             </div>
         </div>
 
     </div>
+
+    <hr />
+
+    <h2 class="text-center mb-4">Upcoming Events</h2>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-warning">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+
+            @foreach (var raceEvent in Model)
+            {
+                <div class="col-md-4 mb-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                @raceEvent.Name
+                            </h5>
+
+                            <p class="card-text">
+                                @raceEvent.Description
+                            </p>
+
+                            <p>
+                                <strong>Date:</strong>
+                                @raceEvent.EventDate.ToString("dd MMMM yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Location:</strong>
+                                @raceEvent.Location
+                            </p>
+
+                            <p>
+                                <strong>Distance:</strong>
+                                @raceEvent.Distance km
+                            </p>
+
+                            <p>
+                                <strong>Event Type:</strong>
+                                @raceEvent.EventType
+                            </p>
+
+                            <a asp-controller="Event"
+                               asp-action="Details"
+                               asp-route-id="@raceEvent.EventID"
+                               class="btn btn-primary w-100">
+                                View Event Details
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            No upcoming events are available at the moment.
+        </div>
+    }
+
 </div>

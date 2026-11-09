@@ -1,7 +1,10 @@
 
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 using RaceDayAPI.Controllers;
 using RaceDayAPI.Data;
 using Xunit;
@@ -10,10 +13,19 @@ namespace RaceDayAPI.Tests
 {
     public class UnitTest1
     {
+        private class TestWebHostEnvironment : IWebHostEnvironment
+        {
+            public string EnvironmentName { get; set; } = "Development";
+            public string ApplicationName { get; set; } = "RaceDayAPI.Tests";
+            public string WebRootPath { get; set; } = "";
+            public IFileProvider WebRootFileProvider { get; set; } = new NullFileProvider();
+            public string ContentRootPath { get; set; } = "";
+            public IFileProvider ContentRootFileProvider { get; set; } = new NullFileProvider();
+        }
+
         [Fact]
         public async Task Register_WithValidDetails_ReturnsOk()
         {
-            // Arrange
             var options = new DbContextOptionsBuilder<RaceDayContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
@@ -30,7 +42,9 @@ namespace RaceDayAPI.Tests
                     .AddInMemoryCollection(settings)
                     .Build();
 
-            var controller = new AuthController(context, configuration);
+            var environment = new TestWebHostEnvironment();
+
+            var controller = new AuthController(context, configuration, environment);
 
             var request = new AuthController.RegisterRequest
             {
@@ -41,10 +55,8 @@ namespace RaceDayAPI.Tests
                 Phone = "0712345678"
             };
 
-            // Act
             var result = await controller.Register(request);
 
-            // Assert
             Assert.IsType<OkObjectResult>(result);
 
             var user = await context.Users
@@ -55,11 +67,9 @@ namespace RaceDayAPI.Tests
             Assert.NotEqual("TestPassword123!", user.PasswordHash);
         }
 
-
         [Fact]
         public async Task Register_WithDuplicateEmail_ReturnsConflict()
         {
-            // Arrange
             var options = new DbContextOptionsBuilder<RaceDayContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
@@ -76,7 +86,9 @@ namespace RaceDayAPI.Tests
                     .AddInMemoryCollection(settings)
                     .Build();
 
-            var controller = new AuthController(context, configuration);
+            var environment = new TestWebHostEnvironment();
+
+            var controller = new AuthController(context, configuration, environment);
 
             var request = new AuthController.RegisterRequest
             {
@@ -86,13 +98,10 @@ namespace RaceDayAPI.Tests
                 Password = "TestPassword123!"
             };
 
-            // Act
             await controller.Register(request);
             var result = await controller.Register(request);
 
-            // Assert
             Assert.IsType<ConflictObjectResult>(result);
         }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿```cshtml
+@{
     ViewData["Title"] = "Participant Dashboard";
 }
 
@@ -11,6 +12,7 @@
     </div>
 
     <div class="row g-4 mt-2">
+
         <div class="col-md-4">
             <div class="card shadow p-4 h-100">
                 <h4>Upcoming Events</h4>
@@ -24,7 +26,7 @@
             <div class="card shadow p-4 h-100">
                 <h4>My Enrolments</h4>
                 <p>View your event enrolments and their status.</p>
-                <a asp-controller="Participant" asp-action="Enrolments"
+                <a asp-controller="Enrolment" asp-action="Index"
                    class="btn btn-dark">My Enrolments</a>
             </div>
         </div>
@@ -33,9 +35,11 @@
             <div class="card shadow p-4 h-100">
                 <h4>My Results</h4>
                 <p>View your race results and finishing positions.</p>
-                <a asp-controller="Participant" asp-action="Results"
+                <a asp-controller="Result" asp-action="Index"
                    class="btn btn-dark">My Results</a>
             </div>
         </div>
+
     </div>
 </div>
+```

@@ -1,65 +1,106 @@
-﻿@model RaceDayMVC.Models.EnrolmentCreateViewModel
+﻿```cshtml
+@model RaceDayMVC.Models.EnrolmentCreateViewModel
 
 @{
     ViewData["Title"] = "Enrol for an Event";
 }
 
 <div class="container mt-4">
-    <h2>Enrol for an Event</h2>
-    <p>Select an event and the category you want to enter.</p>
+    <div class="card shadow p-4">
+        <h2 class="fw-bold">Enrol for an Event</h2>
+        <p class="text-muted">Choose your race and the category you want to enter.</p>
 
-    <form asp-action="Create" method="post">
-        @Html.AntiForgeryToken()
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
 
-        <div asp-validation-summary="All"
-             class="text-danger mb-3"></div>
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3"></div>
 
-        <div class="mb-3">
-            <label asp-for="EventID" class="form-label">
-                Select Event
-            </label>
+            <div class="mb-3">
+                <label asp-for="EventID" class="form-label">
+                    Select Event
+                </label>
 
-            <select asp-for="EventID" class="form-select">
-                <option value="">-- Select an Event --</option>
+                <select asp-for="EventID" id="EventID"
+                        class="form-select">
+                    <option value="">-- Select an Event --</option>
 
-                @foreach (var item in Model.Events)
-                {
-                    <option value="@item.EventID">
-                        @item.Name
-                    </option>
-                }
-            </select>
+                    @foreach (var item in Model.Events)
+                    {
+                        <option value="@item.EventID">
+                            @item.Name
+                        </option>
+                    }
+                </select>
 
-            <span asp-validation-for="EventID"
-                  class="text-danger"></span>
-        </div>
+                <span asp-validation-for="EventID"
+                      class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="CategoryID" class="form-label">
-                Select Category
-            </label>
+            <div class="mb-3">
+                <label asp-for="CategoryID" class="form-label">
+                    Select Category
+                </label>
 
-            <select asp-for="CategoryID" class="form-select">
-                <option value="">-- Select a Category --</option>
+                <select asp-for="CategoryID" id="CategoryID"
+                        class="form-select">
+                    <option value="">-- Select a Category --</option>
 
-                @foreach (var item in Model.Categories)
-                {
-                    <option value="@item.CategoryID">
-                        @item.CategoryName
-                    </option>
-                }
-            </select>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option value="@item.CategoryID"
+                                data-event-id="@item.EventID">
+                            @item.CategoryName
+                        </option>
+                    }
+                </select>
 
-            <span asp-validation-for="CategoryID"
-                  class="text-danger"></span>
-        </div>
+                <span asp-validation-for="CategoryID"
+                      class="text-danger"></span>
+            </div>
 
-        <button type="submit" class="btn btn-success">
-            Confirm Enrolment
-        </button>
+            <button type="submit" class="btn btn-success">
+                Confirm Enrolment
+            </button>
 
-        <a asp-action="Index" class="btn btn-secondary">
-            Back
-        </a>
-    </form>
+            <a asp-action="Index" class="btn btn-secondary">
+                Back
+            </a>
+        </form>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const eventSelect = document.getElementById("EventID");
+            const categorySelect = document.getElementById("CategoryID");
+
+            const allCategories = Array.from(categorySelect.options)
+                .slice(1);
+
+            function filterCategories() {
+                const selectedEvent = eventSelect.value;
+                const previousCategory = categorySelect.value;
+
+                categorySelect.innerHTML =
+                    '<option value="">-- Select a Category --</option>';
+
+                allCategories.forEach(function (category) {
+                    if (category.dataset.eventId === selectedEvent) {
+                        categorySelect.appendChild(category.cloneNode(true));
+                    }
+                });
+
+                if (Array.from(categorySelect.options).some(
+                    option => option.value === previousCategory)) {
+                    categorySelect.value = previousCategory;
+                }
+            }
+
+            eventSelect.addEventListener("change", filterCategories);
+            filterCategories();
+        });
+    </script>
+}
+```
