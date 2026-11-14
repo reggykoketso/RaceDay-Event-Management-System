@@ -1,34 +1,42 @@
-name: RaceDay API CI
+
+name: RaceDay CI
 
 on:
   push:
     branches:
       - main
-      - part-2-restful-api
+      - Part2-development
+      - Part3-development
   pull_request:
     branches:
       - main
-      - part-2-restful-api
+      - Part2-development
+      - Part3-development
 
 jobs:
   build-and-test:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore RaceDayAPI.Tests/RaceDayAPI.Tests.csproj
+      - name: Restore API and test dependencies
+        run: dotnet restore RaceDayAPI.Tests/RaceDayAPI.Tests.csproj
 
-    - name: Build
-      run: dotnet build RaceDayAPI.Tests/RaceDayAPI.Tests.csproj --no-restore --configuration Release
+      - name: Restore MVC dependencies
+        run: dotnet restore RaceDayMVC/RaceDayMVC.csproj
 
-    - name: Run tests
-      run: dotnet test RaceDayAPI.Tests/RaceDayAPI.Tests.csproj --no-build --configuration Release
+      - name: Build API
+        run: dotnet build RaceDayAPI/RaceDayAPI.csproj --no-restore --configuration Release
+
+      - name: Build MVC
+        run: dotnet build RaceDayMVC/RaceDayMVC.csproj --no-restore --configuration Release
+
+      - name: Run API tests
+        run: dotnet test RaceDayAPI.Tests/RaceDayAPI.Tests.csproj --configuration Release --no-restore
